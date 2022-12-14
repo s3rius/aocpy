@@ -1,5 +1,6 @@
-from aocpy.base import BaseSolution
 from dataclasses import dataclass
+
+from aocpy.base import BaseSolution
 
 
 @dataclass

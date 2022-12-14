@@ -1,8 +1,9 @@
-from aocpy.base import BaseSolution
-from dataclasses import dataclass
-from typing import Optional
 import enum
+from dataclasses import dataclass
 from time import sleep
+from typing import Optional
+
+from aocpy.base import BaseSolution
 
 
 class Instruction(enum.Enum):
@@ -30,7 +31,7 @@ class Command:
             return self.arg
 
 
-class CathodeRayTube(BaseSolution[Command], year=2022, day=10):
+class CathodeRayTube(BaseSolution, year=2022, day=10):
     def prepare(self, line: str) -> Command:
         split = line.strip().split()
         if len(split) == 2:

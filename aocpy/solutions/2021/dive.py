@@ -1,6 +1,7 @@
-from aocpy.base import BaseSolution
 import enum
 from dataclasses import dataclass
+
+from aocpy.base import BaseSolution
 from aocpy.utils.vec2 import Vec2
 
 

@@ -1,5 +1,6 @@
-from aocpy.base import BaseSolution
 from collections import Counter
+
+from aocpy.base import BaseSolution
 
 
 class BinaryDiagnostic(BaseSolution, year=2021, day=3):

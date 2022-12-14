@@ -1,6 +1,6 @@
 import pkgutil
-from pathlib import Path
 from importlib import import_module
+from pathlib import Path
 
 
 def load_all_solutions() -> None:

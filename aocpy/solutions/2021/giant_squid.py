@@ -1,8 +1,9 @@
-from aocpy.base import BaseSolution
-from dataclasses import dataclass, field
-from aocpy.utils.vec2 import Vec2
-from typing import DefaultDict
 from collections import defaultdict
+from dataclasses import dataclass, field
+from typing import DefaultDict
+
+from aocpy.base import BaseSolution
+from aocpy.utils.vec2 import Vec2
 
 
 @dataclass

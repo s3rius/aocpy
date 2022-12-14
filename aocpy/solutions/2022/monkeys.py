@@ -1,8 +1,9 @@
-from aocpy.base import BaseSolution
+import math
+from collections import deque
 from dataclasses import dataclass
 from typing import Callable
-from collections import deque
-import math
+
+from aocpy.base import BaseSolution
 
 
 @dataclass

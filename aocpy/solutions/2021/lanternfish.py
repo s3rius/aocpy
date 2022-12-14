@@ -1,5 +1,4 @@
 from aocpy.base import BaseSolution
-from functools import partial
 
 
 class Lanternfish(BaseSolution, year=2021, day=6):

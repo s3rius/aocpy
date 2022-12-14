@@ -1,9 +1,14 @@
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter, Namespace
-from aocpy.solutions import load_all_solutions
-from aocpy.base import BaseSolution
 import inspect
-from pathlib import Path
 import sys
+from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser, Namespace
+from pathlib import Path
+
+from typer import Typer
+
+from aocpy.base import BaseSolution
+from aocpy.solutions import load_all_solutions
+
+cli = Typer()
 
 
 def parse_args() -> Namespace:
@@ -14,21 +19,40 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
-def main():
-    args = parse_args()
+@cli.command()
+def run(
+    year: int,
+    day: int,
+    test: bool = False,
+):
     load_all_solutions()
     try:
-        solution = BaseSolution.solutions[(args.year, args.day)]
+        solution = BaseSolution.solutions[(year, day)]
     except LookupError:
-        print(f"Solution for {args.year}:{args.day} cannot be found.")
+        print(f"Solution for {year}:{day} cannot be found.")
         return 1
 
     solution_path = Path(inspect.getfile(solution.__class__)).relative_to(
         Path(__file__).parent,
     )
     print(f"Running solution from file: {solution_path}")
-    solution.run(args.test)
+    solution.run(test)
+
+
+@cli.command(name="list")
+def list_solved(year: int):
+    load_all_solutions()
+    solutions = []
+    for solution in BaseSolution.solutions.values():
+        if solution._AOC_YEAR == year:
+            solutions.append(solution)
+    solutions.sort(key=lambda sol: sol._AOC_DAY)
+    for sol in solutions:
+        sol_path = Path(inspect.getfile(sol.__class__)).relative_to(
+            Path(__file__).parent,
+        )
+        print(f"day {sol._AOC_DAY}:", sol_path)
 
 
 if __name__ == "__main__":
-    sys.exit(main() or 0)
+    cli()

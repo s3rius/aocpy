@@ -1,5 +1,6 @@
-from aocpy.base import BaseSolution
 from typing import Any
+
+from aocpy.base import BaseSolution
 
 
 class CalorieCounting(BaseSolution, year=2022, day=1):

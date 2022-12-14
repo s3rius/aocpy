@@ -1,30 +1,29 @@
-from abc import abstractmethod
-from typing import Any
-from typing import Generic
-from typing_extensions import TypeVar
 from pathlib import Path
+from typing import Any
 
-T = TypeVar("T", default=str)
 
-
-class BaseSolution(Generic[T]):
+class BaseSolution:
     INPUT_PATH: Path
     TEST_INPUT_PATH: Path
     solutions: dict[int, "BaseSolution"] = {}
+    _AOC_DAY: int
+    _AOC_YEAR: int
 
     def __init_subclass__(cls, day: int, year: int, **kwargs: Any) -> None:
         super().__init_subclass__(**kwargs)
+        cls._AOC_DAY = day
+        cls._AOC_YEAR = year
         cls.INPUT_PATH = Path(f"./inputs/{year}/{day}.txt")
         cls.TEST_INPUT_PATH = Path(f"./inputs/{year}/{day}_test.txt")
         cls.solutions[(year, day)] = cls()
 
-    def part1(self, inputs: list[T]):
+    def part1(self, inputs: list[Any]):
         pass
 
-    def part2(self, inputs: list[T]):
+    def part2(self, inputs: list[Any]):
         pass
 
-    def prepare(self, line: str) -> T:
+    def prepare(self, line: str) -> Any:
         raise NotImplemented
 
     def run(self, test: bool = False):

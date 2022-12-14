@@ -1,8 +1,9 @@
-from aocpy.base import BaseSolution
-from dataclasses import dataclass, field
-from typing import Optional
 from collections import deque
+from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Optional
+
+from aocpy.base import BaseSolution
 
 
 @dataclass

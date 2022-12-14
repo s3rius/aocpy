@@ -1,6 +1,7 @@
-from aocpy.base import BaseSolution
-from dataclasses import dataclass
 import enum
+from dataclasses import dataclass
+
+from aocpy.base import BaseSolution
 from aocpy.utils.vec2 import Vec2
 
 
@@ -27,7 +28,7 @@ class Look:
     value: int
 
 
-class RopeBridge(BaseSolution[Look], year=2022, day=9):
+class RopeBridge(BaseSolution, year=2022, day=9):
     def prepare(self, line: str) -> Look:
         direction, value = line.split()
         return Look(direction=Direction[direction], value=int(value))

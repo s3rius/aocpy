@@ -1,7 +1,7 @@
 from aocpy.base import BaseSolution
 
 
-class TreetopTreeHouse(BaseSolution[list[int]], year=2022, day=8):
+class TreetopTreeHouse(BaseSolution, year=2022, day=8):
     def prepare(self, line: str) -> list[int]:
         return list([int(i) for i in line.strip()])
 

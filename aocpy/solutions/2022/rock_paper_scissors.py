@@ -1,13 +1,12 @@
 from aocpy.base import BaseSolution
 
-T = tuple[str, str]
 
 
 class RockPaperScissors(BaseSolution, year=2022, day=2):
-    def prepare(self, line: str) -> T:
+    def prepare(self, line: str) -> tuple[str, str]:
         return tuple(line.split())
 
-    def part1(self, inp: list[T]):
+    def part1(self, inp: list[tuple[str, str]]):
         score = 0
         for (opp, you) in inp:
             score += {"X": 1, "Y": 2, "Z": 3}[you] + {
@@ -24,7 +23,7 @@ class RockPaperScissors(BaseSolution, year=2022, day=2):
 
         return score
 
-    def part2(self, inp: list[T]):
+    def part2(self, inp: list[tuple[str, str]]):
         score = 0
         for opp, you in inp:
             score += {"X": 0, "Y": 3, "Z": 6}[you] + {

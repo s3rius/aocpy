@@ -8,10 +8,17 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 typing-extensions = "^4.4.0"
+typer = {version = "^0.7.0", extras = ["all"]}
 
 
 [tool.poetry.group.dev.dependencies]
 black = {version = "^22.10.0", allow-prereleases = true}
+isort = "^5.11.2"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+src_paths = ["aocpy",]
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,6 +1,7 @@
-from aocpy.base import BaseSolution
 import json
 from typing import Any
+
+from aocpy.base import BaseSolution
 
 
 class DistressSignal(BaseSolution, year=2022, day=13):
