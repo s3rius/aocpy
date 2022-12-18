@@ -108,5 +108,8 @@ class Vec2:
             )
         ]
 
+    def manhattan_distance(self, to: "Vec2") -> int:
+        return abs(self.x - to.x) + abs(self.y - to.y)
+
     def __abs__(self) -> "Vec2":
         return Vec2(x=abs(self.x), y=abs(self.y))
